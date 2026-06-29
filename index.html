@@ -278,6 +278,113 @@
     .pricing-points strong{display:block; color:var(--starlight); margin-bottom:4px; font-size:0.95rem;}
     .pricing-card .btn-primary{margin-top:42px;}
 
+    /* ---------- BOOK SECTION - CLEAN & FIXED ---------- */
+    .book-section{
+      background:linear-gradient(180deg, rgba(75,46,131,0.05), transparent);
+    }
+    .book-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+    .book-left{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:30px;
+    }
+    /* Book cover - NOT clickable anymore */
+    .book-cover-display{
+      display:block;
+      width:100%;
+      max-width:340px;
+      border:1px solid var(--line);
+      padding:16px;
+      background:rgba(13,17,48,0.4);
+      border-radius:4px;
+    }
+    .book-cover-display img{
+      width:100%;
+      height:auto;
+      border-radius:2px;
+      display:block;
+    }
+    /* Author photo - LARGER */
+    .author-photo{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      border-top:1px solid var(--line);
+      padding-top:30px;
+      width:100%;
+      max-width:340px;
+    }
+    .author-photo img{
+      width:160px;
+      height:160px;
+      border-radius:50%;
+      border:3px solid var(--gold);
+      object-fit:cover;
+      display:block;
+      background:var(--deep);
+    }
+    .author-photo .photo-label{
+      font-family:'Cinzel',serif;
+      color:var(--gold);
+      font-size:0.9rem;
+      letter-spacing:0.06em;
+    }
+    /* fallback if image missing */
+    .author-photo .fallback-text{
+      width:160px;
+      height:160px;
+      border-radius:50%;
+      border:3px solid var(--gold);
+      background:linear-gradient(135deg,#0d1130,#4b2e83);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:'Cinzel',serif;
+      font-size:14px;
+      color:var(--gold);
+      text-align:center;
+      padding:10px;
+      line-height:1.3;
+    }
+
+    .book-info h2{
+      font-size:clamp(1.8rem,2.8vw,2.4rem);
+      color:var(--starlight);
+      margin-bottom:8px;
+    }
+    .book-info .book-sub{
+      font-family:'Cormorant Garamond',serif;
+      font-style:italic;
+      color:var(--gold);
+      font-size:1.2rem;
+      margin-bottom:6px;
+      display:block;
+    }
+    .book-info .book-author-name{
+      font-family:'Cinzel',serif;
+      color:var(--mist);
+      font-size:0.95rem;
+      letter-spacing:0.04em;
+      margin-bottom:16px;
+      display:block;
+    }
+    .book-info p{
+      color:var(--mist);
+      font-size:1.02rem;
+      line-height:1.7;
+      margin-bottom:24px;
+    }
+    .book-info .btn-primary{
+      display:inline-flex;
+    }
+
     /* ---------- REVIEWS ---------- */
     .reviews-grid{
       display: grid;
@@ -370,12 +477,20 @@
       .contact-grid{grid-template-columns:1fr;}
       .reviews-grid{grid-template-columns:1fr;}
       .review-card.full{grid-column:1;}
+      .book-grid{grid-template-columns:1fr; text-align:center;}
+      .book-left{align-items:center;}
+      .book-cover-display{max-width:280px;}
+      .author-photo{max-width:280px;}
+      .author-photo img{width:130px;height:130px;}
+      .author-photo .fallback-text{width:130px;height:130px;font-size:12px;}
     }
     @media (max-width:560px){
       .services-grid{grid-template-columns:1fr;}
       .hero-meta{gap:22px;}
       .pricing-card{padding:36px 22px;}
       .solar-wrap{max-width:280px;}
+      .author-photo img{width:110px;height:110px;}
+      .author-photo .fallback-text{width:110px;height:110px;font-size:11px;}
     }
   </style>
 </head>
@@ -394,6 +509,7 @@
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#pricing">Consultation</a>
+        <a href="#book">Book</a>
         <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
       </div>
@@ -431,17 +547,12 @@
       <div class="solar-wrap">
         <div class="solar-glow"></div>
         <svg class="solar-system" viewBox="0 0 200 200">
-          <!-- Sun -->
           <circle class="sun" cx="100" cy="100" r="18" />
-          
-          <!-- Orbits -->
           <circle class="orbit" cx="100" cy="100" r="32" />
           <circle class="orbit" cx="100" cy="100" r="48" />
           <circle class="orbit" cx="100" cy="100" r="64" />
           <circle class="orbit" cx="100" cy="100" r="80" />
           <circle class="orbit" cx="100" cy="100" r="94" />
-          
-          <!-- Planets with labels -->
           <g class="planet-orbit">
             <g transform="rotate(0,100,100) translate(100,68)">
               <circle class="planet" r="4" />
@@ -557,6 +668,43 @@
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="9" r="5"/><path d="M8 21l4-7 4 7"/></svg>
           <h3>Gems, Rudraksha &amp; Yantra</h3>
           <p>Personalised remedial recommendations — gemstones, Rudraksha, and Yantras suited to your specific chart.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK SECTION - CLEAN & FIXED -->
+  <section class="book-section" id="book">
+    <div class="wrap">
+      <div class="section-head reveal" style="margin:0 auto 64px; text-align:center;">
+        <div class="eyebrow" style="justify-content:center;">Published Work</div>
+        <h2>Explore Sri Chandra Mouli's Book</h2>
+        <p>Dive deep into the wisdom of Vedic Astrology and Numerology through his comprehensive guide.</p>
+      </div>
+      <div class="book-grid reveal">
+        <!-- LEFT SIDE: Book Cover (NOT clickable) + Author Photo (LARGER) -->
+        <div class="book-left">
+          <div class="book-cover-display">
+            <img src="https://via.placeholder.com/400x500/d6ad60/070818?text=FREEWILL+-+DESTINY" alt="FREEWILL - DESTINY by B R Chandra Mouli">
+          </div>
+          <div class="author-photo">
+            <img src="image.png" alt="B.R. Chandra Mouli" onerror="this.style.display='none';this.parentElement.querySelector('.fallback-text').style.display='flex'">
+            <div class="fallback-text" style="display:none;">B.R.<br>Chandra<br>Mouli</div>
+            <span class="photo-label">— B.R. Chandra Mouli —</span>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE: Book Details -->
+        <div class="book-info">
+          <h2>FREEWILL - DESTINY</h2>
+          <span class="book-sub">A Comprehensive Guide to Vedic Astrology &amp; Numerology</span>
+          <span class="book-author-name">by B R Chandra Mouli</span>
+          <p>In this book, <strong>B R Chandra Mouli</strong> shares decades of wisdom and practical insights into the ancient science of Jyotish and numbers. Whether you're a beginner or a seasoned practitioner, this book offers clear guidance on understanding birth charts, planetary influences, and remedial measures.</p>
+          <p style="font-size:0.95rem; color:var(--gold);">📖 Available now on Amazon India</p>
+          <a href="https://www.amazon.in/FREEWILL-B-R-Chandra-Mouli-ebook/dp/B07LG836N5" target="_blank" rel="noopener" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Buy on Amazon
+          </a>
         </div>
       </div>
     </div>
